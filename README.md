@@ -58,7 +58,21 @@ enumerable(fruit, apple = 0, banana, pineapple, watermelon);
 
 // ...
 
-for (const auto i : enumerable<fruit>::items()) {
+// Key iteration
+for (const auto i : fruit::names()) {
+    std::cout << i << std::endl;
+}
+
+// Value iteration
+for (const auto i : fruit::values()) {
+    // NOTE: by default, the values() function is going to
+    //       return an array of integers, so you'll have
+    //       to convert it manually
+    std::cout << fruit(i) << std::endl;
+}
+
+// Key/value iteration
+for (const auto i : fruit::items()) {
     std::cout << i.first // Name
               << " = "
               << i.second // Value
